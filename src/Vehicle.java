@@ -1,4 +1,4 @@
-public class Vehicle implements Service {
+public class Vehicle {
     private String modelName;
     private int wheelsCount;
 
@@ -23,21 +23,22 @@ public class Vehicle implements Service {
         this.modelName = modelName;
     }
 
-    @Override
     public void updateTyre() {
         System.out.println("Меняем покрышку");
     }
 
-    @Override
     public void checkEngine() {
         System.out.println("Проверяем двигатель");
     }
 
-    @Override
     public void checkTrailer() {
         System.out.println("Проверяем прицеп");
     }
 
-    public static void check(){
+    public void service(){
+        System.out.println("Обслуживаем " + getModelName());
+        for (int i = 0; i < getWheelsCount(); i++) {
+            updateTyre();
+        }
     }
 }
